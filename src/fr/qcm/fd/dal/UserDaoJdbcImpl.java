@@ -19,7 +19,7 @@ public class UserDaoJdbcImpl implements DAO<User>
 	private static final String SQLLOGIN="SELECT idUtilisateur, nom, prenom, email, password, utilisateur.codeProfil, profil.libelle FROM utilisateur "
 										+ "INNER JOIN profil ON utilisateur.codeProfil = profil.codeProfil "
 										+ "WHERE email=? AND password=?";
-	private static final String SQLSELECTALLCANDIDAT="SELECT idUtilisateur, nom, prenom, email, password, utilisateur.codeProfil, profil.libelle, codePromo FROM utilisateur "
+	private static final String SQLSELECTALLCANDIDAT="SELECT idUtilisateur, nom, prenom, email, utilisateur.codeProfil, profil.libelle, codePromo FROM utilisateur "
 										+ "INNER JOIN profil ON utilisateur.codeProfil = profil.codeProfil "
 										+ "WHERE profil.libelle='candidat'";
 	private static final String SQLINSERT="";
@@ -167,7 +167,6 @@ public class UserDaoJdbcImpl implements DAO<User>
 							rs.getString("nom"),
 							rs.getString("prenom"),
 							rs.getString("email"),
-							rs.getString("password"),
 							new Profil(rs.getInt("codeProfil"),rs.getString("libelle")));
 					listeUsers.add(user);
 				}

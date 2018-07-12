@@ -5,7 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="<%=request.getContextPath()%>/index.jsp">Home</a></li>
-      <li><a href="#">Gérer les épreuves</a></li>
+      <li><a href="<%=request.getContextPath()%>/creerEpreuve">Gérer les épreuves</a></li>
       <li><a href="#">Gérer les candidats</a></li>
       <li><a href="#">Voir les notes</a></li>
     </ul>

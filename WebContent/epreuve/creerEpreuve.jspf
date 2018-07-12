@@ -1,7 +1,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="test">
-	<h3>Liste des candidats</h3>
+	
+	<form action="./creerEpreuve">
+		<label>Liste des candidats</label>
+		<select id="userList">
+			<c:forEach items="${listeUsers}" var="u">
+		     	<option value= "${u.nom}">${u.nom } ${u.prenom }</option>
+	   		</c:forEach>
+		</select>
+		<br>
+		<label>Liste des tests</label>
+		<select id="testList">
+			<c:forEach items="${listeTests}" var="t">
+		     	<option value= "${t.libelle}">${t.libelle }: ${t.description}</option>
+	   		</c:forEach>
+		</select>
+		<br>
+		<input type="submit" action="post" value="Créer épreuve">
+	</form>
+<%-- 
 	<c:forEach items="${listeUsers}" var="u">
 		     	<ul>
 		     		<li>
@@ -10,13 +28,14 @@
 					</li>
 				</ul> 
     		</c:forEach>
-	<h3>Liste des tests</h3>
-			<c:forEach items="${listeTests}" var="t">
-		     	<ul>
-		     		<li>
-					${t.libelle}
-					</li>
-				</ul> 
-    		</c:forEach>
-
+    		 --%>
+	
+<%-- 			<c:forEach items="${listeTests}" var="t"> --%>
+<!-- 		     	<ul> -->
+<!-- 		     		<li> -->
+<%-- 					${t.libelle} --%>
+<!-- 					</li> -->
+<!-- 				</ul>  -->
+<%--     		</c:forEach> --%>
+		
 </div>

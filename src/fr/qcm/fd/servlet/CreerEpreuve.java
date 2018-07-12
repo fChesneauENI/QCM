@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.qcm.fd.beans.Test;
 import fr.qcm.fd.beans.User;
+import fr.qcm.fd.dal.EpreuveDao;
 import fr.qcm.fd.dal.TestDao;
 import fr.qcm.fd.dal.UserDaoJdbcImpl;
 
@@ -35,33 +37,16 @@ public class CreerEpreuve extends javax.servlet.http.HttpServlet implements java
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);	
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);	
-	}
-	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		try{
+		//processRequest(request, response);	
+try{
 			
 			/*
 			 * Récupérer les données en base
 			 */
-			System.out.println("step1");
 			ArrayList<Test> tests = TestDao.selectAllTest();
-			System.out.println("step2");
 			ArrayList<User> users = UserDaoJdbcImpl.selectAllCandidat();
-			System.out.println("step3");
-			System.out.println(tests.get(0).toString());
-			System.out.println("step4");
-			System.out.println(users.get(0).toString());
-			System.out.println("step5");
-				
+			
+			
 			/*
 			 * Placer les tests dans le contexte de requete			
 			 */
@@ -77,7 +62,50 @@ public class CreerEpreuve extends javax.servlet.http.HttpServlet implements java
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/erreurPage");
 			dispatcher.forward(request,response);
 		}
-		
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//processRequest(request, response);	
+		String user= request.getParameter("user");
+		String test= request.getParameter("test");
+		System.out.println(user.toString());
+		System.out.println(test.toString());
+		
+		
+ 
+	
+	}
+	
+//	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		
+//		try{
+//			
+//			/*
+//			 * Récupérer les données en base
+//			 */
+//			ArrayList<Test> tests = TestDao.selectAllTest();
+//			ArrayList<User> users = UserDaoJdbcImpl.selectAllCandidat();
+//			
+//				
+//			/*
+//			 * Placer les tests dans le contexte de requete			
+//			 */
+//			request.setAttribute("listeTests", tests);
+//			request.setAttribute("listeUsers", users);
+//			
+//			
+//			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/epreuve/creerEpreuve.jsp");
+//			dispatcher.forward(request,response);
+//			
+//		}catch (Exception e){
+//			request.setAttribute("erreur", e);
+//			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/erreurPage");
+//			dispatcher.forward(request,response);
+//		}
+//		
+//	}
 
 }
