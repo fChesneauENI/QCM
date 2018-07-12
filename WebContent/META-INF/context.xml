@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="QCM" path="/QCM" reloadable="true"
+ source="org.eclipse.jst.jee.server:QCM">
+ 	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+ 	<!-- Définir le pool de connexion vers la base Cours -->
+ 	<!-- Penser à mettre sqljdbc.jar dans le repertoire lib de WEB-INF -->
+ 	
+ 	<!-- maxIdle=nombre maxi de connexion inactives qui peuvent être 
+ 				dans le pool de connexion 
+ 		maxActive=nombre maxi de connexions qui peuvent être allouées depuis le pool.
+ 		acceptCount=nombre maxi de commandes en attente de connexion.
+ 		maxWaitMillis=durée maxi d'attente pour l'obtention d'une connexion en millisecondes.
+ 		removeAbandoned= activée la gestion des fuites de connexion
+ 		removeAbandonedTimeOut = nombre de secondes pour passer 
+ 								 d'une connexion inactive à abandonnée. 
+ 		-->
+	<Resource
+		type="javax.sql.DataSource"
+		name="jdbc/dsBDD_QCM"
+		auth="Container"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://127.0.0.1:1433;databasename=BDD_QCM"
+		username="jee" password="P@$$w0rd"
+		maxIdle="5"
+		maxActive="10"
+		acceptCount="10"
+		maxWaitMillis="15000"
+		removeAbandoned="true"
+		removeAbandonedTimeOut="10"
+		/>
+ 
+ </Context>

@@ -1,0 +1,22 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<div class="test">
+	<h3>Liste des candidats</h3>
+	<c:forEach items="${listeUsers}" var="u">
+		     	<ul>
+		     		<li>
+					${u.nom} 
+					${u.prenom}
+					</li>
+				</ul> 
+    		</c:forEach>
+	<h3>Liste des tests</h3>
+			<c:forEach items="${listeTests}" var="t">
+		     	<ul>
+		     		<li>
+					${t.libelle}
+					</li>
+				</ul> 
+    		</c:forEach>
+
+</div>
