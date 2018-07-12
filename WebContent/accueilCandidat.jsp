@@ -1,7 +1,20 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@include file="includes/header.jsp" %>
 <body>
 	<header>
-		<%@include file="../includes/menuCandidat.jsp" %>
+		<c:choose>
+			<c:when test="${user.getProfil().getLibelle()==\"candidat\"}" >
+				<%@include file="../includes/menuCandidat.jsp" %>
+			</c:when>
+			<c:when test="${user.getProfil().getLibelle()==\"responsable\"}" >
+				<%@include file="../includes/menuResp.jsp" %>
+			</c:when>
+			<c:when test="${user.getProfil().getLibelle()==\"administrateur\"}" >
+				<%@include file="../includes/menu.jsp" %>
+			</c:when>
+		</c:choose>
+		
 	</header>
 	<main class="container" style="min-height: 650px">
 		<div class="row">
