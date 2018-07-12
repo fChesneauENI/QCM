@@ -32,12 +32,19 @@ public class User implements Serializable
 		this.password = password;
 		this.profil= profil;
 	}
-	public User(String nom, String prenom, String email, String password, Profil profil) {
+	public User(int idUser, String nom, String prenom, String email, Profil profil) {
+		super();
+		this.idUser = idUser;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.profil = profil;
+	}
+	public User(String nom, String prenom, String email, Profil profil) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.password = password;
 		this.profil= profil;
 	}
 	
@@ -87,7 +94,7 @@ public class User implements Serializable
 	@Override
 	public String toString() {
 		return "User [idUser=" + idUser + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password="
-				+ password + ", profil=" + profil + ", promo=" + promo + "]";
+				+ password + ", profil=" + profil.toString() + ", promo=" + promo + "]";
 	}
 	
 	

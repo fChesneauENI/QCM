@@ -41,4 +41,9 @@ public class Profil implements Serializable{
 		this.libelle = libelle;
 	}
 
+	@Override
+	public String toString() {
+		return "Profil [codeProfil=" + codeProfil + ", libelle=" + libelle + "]";
+	}
+
 }
