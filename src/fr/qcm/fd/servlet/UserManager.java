@@ -59,7 +59,7 @@ public class UserManager extends HttpServlet implements Servlet {
 
 			// Si l'animateur est déjà  connecté, on redirige vers le menu animateur
 			userConnecte = (User)request.getSession().getAttribute("userConnecte");
-			System.out.println("userConnecte !" + userConnecte);
+			//System.out.println("userConnecte !" + userConnecte);
 			if (userConnecte!=null) {
 				System.out.println("Connecté !");
 				redirectionAccueilCandidat(request, response);

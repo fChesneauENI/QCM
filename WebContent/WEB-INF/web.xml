@@ -21,4 +21,23 @@
     <servlet-name>UserManager</servlet-name>
     <url-pattern>/Login/authentification</url-pattern>
   </servlet-mapping>
-  </web-app>
+  <servlet>
+    <servlet-name>CreerEpreuve</servlet-name>
+    <servlet-class>fr.qcm.fd.servlet.CreerEpreuve</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreerEpreuve</servlet-name>
+    <url-pattern>/creerEpreuve</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>Deconnecter</display-name>
+    <servlet-name>Deconnecter</servlet-name>
+    <servlet-class>fr.qcm.fd.servlet.Deconnecter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deconnecter</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -52,10 +52,15 @@ public class CreerEpreuve extends javax.servlet.http.HttpServlet implements java
 			/*
 			 * Récupérer les données en base
 			 */
+			System.out.println("step1");
 			ArrayList<Test> tests = TestDao.selectAllTest();
+			System.out.println("step2");
 			ArrayList<User> users = UserDaoJdbcImpl.selectAllCandidat();
+			System.out.println("step3");
 			System.out.println(tests.get(0).toString());
+			System.out.println("step4");
 			System.out.println(users.get(0).toString());
+			System.out.println("step5");
 				
 			/*
 			 * Placer les tests dans le contexte de requete			

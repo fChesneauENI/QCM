@@ -1,10 +1,17 @@
 <%@include file="../includes/header.jsp" %>
-
-	<section class="col-sm-9">
+<body>
+	<header>
+		<%@include file="../includes/menuResp.jsp" %>
+	</header>
+	<main class="container">
 		<div class="row">
-			<div class="col-sm-9">
+			<section class="col-sm-9">
 				<%@ include file="creerEpreuve.jspf" %>
-			</div>
+			</section>
 		</div>
-	</section>
-<%@include file="../includes/footer.jsp" %>
+	</main>
+	<footer class="row" style= "text-align: center">		
+		<%@include file="../includes/footer.jsp" %>
+	</footer>
+</body>
+</html>
